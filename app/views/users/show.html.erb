@@ -1,21 +1,17 @@
 <div class="profile-container">
   <h3 class="profile-name"><%= @user.name %></h3>
-  <%= image_tag('sample-author1.jpg') %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
   <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>    
 </div>
-
-
-
 <% @books.each do |book| %>
 <div>
   <%= link_to book_path(book.id) do %>
     <%= attachment_image_tag book, :image %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>投稿ユーザー画像：<%= attachment_image_tag book, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
   <p>ユーザーネーム：<%= book.user.name %></p>
   <p>説明：<%= book.caption %></p>
 </div>
 <% end %>
-<%= paginate @books %>
