@@ -29,7 +29,7 @@
                 <%= link_to "Users" %>
               </li>
               <li class="fas fa-book-open nav-link text-light">
-                <%= link_to "Books" %>
+                <%= link_to "Books", books_path %>
               </li>
               <li class="fas fa-sign-out-alt nav-link text-light">
                 <%= link_to "logout", destroy_user_session_path, method: :delete %>
