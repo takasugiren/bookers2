@@ -14,7 +14,17 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
  .field, .actions {
      margin-bottom: 10px;
+ }
+
+ p {
+  margin-bottom: 0.5rem;
+ }
+
+ .form-group {
+  margin-bottom: 1rem;
  }
