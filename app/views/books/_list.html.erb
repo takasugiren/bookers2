@@ -9,18 +9,18 @@
            </tr>
            <tr>
              <th>introduction</th>
-             <th></th>
+             <th><%= current_user.body %></th>
            </tr>
          </tbody>
         </table>
         <div class="row">
-          <%= link_to "", "/users/:id/edit", class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+          <%= link_to "", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
         </div>
         <h2 class="mt-3">New book</h2>
         <% if @book.errors.any? %>
-         <%= @book.errors.count %>件のエラーが発生しました
+         <%= @book.errors.count %>件のerrorが発生しました
          <% @book.errors.full_messages.each do |message| %>
-         <%= message %>
+         <li><%= message %></li>
          <% end %>
         <% end %>
         <%= form_with model:@book, local:true do |f| %>
@@ -36,4 +36,3 @@
             <%= f.submit 'Create Book' %>
           </div>
         <% end %>
-      
