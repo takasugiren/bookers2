@@ -1,10 +1,16 @@
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>件のerrorが発生しました
+      <% @book.errors.full_messages.each do |message| %>
+      <li class="error-messages"><%= message %></li>
+      <% end %>
+    <% end %>
     <div class="row">
       <div class="col-md-3">
         <h2>User info</h2>
-        <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
+        <%= attachment_image_tag @book.user, :profile_image, size: '100x100', fallback: "no_image.jpg"%>
         <table class="table">
          <tbody>
            <tr></tr>
@@ -14,7 +20,7 @@
            </tr>
            <tr>
              <th>introduction</th>
-             <th><%= @user.body %></th>
+             <th><%= @user.introduction %></th>
            </tr>
          </tbody>
         </table>
@@ -22,22 +28,16 @@
           <%= link_to "", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
         </div>
         <h2 class="mt-3">New book</h2>
-        <% if @book.errors.any? %>
-         <%= @book.errors.count %>件のerrorが発生しました
-         <% @book.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-         <% end %>
-        <% end %>
         <%= form_with model:@book, local:true do |f| %>
-          <div class="from-group">
+          <div class="from">
             <p>Title</p>
             <%= f.text_field :title %>
           </div>
-          <div class="from-group">
+          <div class="from">
             <p>Opinion</p>
             <%= f.text_area :body %>
           </div>
-          <div class="from-group">
+          <div class="from">
             <%= f.submit 'Create Book' %>
           </div>
         <% end %>

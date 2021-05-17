@@ -21,10 +21,27 @@
      margin-bottom: 10px;
  }
 
- p {
-  margin-bottom: 0.5rem;
+ .font {
+  margin-bottom: 16px;
  }
 
- .form-group {
-  margin-bottom: 1rem;
+ p {
+  margin-bottom: 8px;
  }
+
+ .from {
+  margin-bottom: 16px;
+ }
+
+.notice {
+ color: green;
+ margin-bottom: 16px;
+}
+
+.text {
+ margin-bottom: 8px;
+}
+
+.error-messages {
+ color: red;
+}

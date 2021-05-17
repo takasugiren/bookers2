@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
   validates :name, uniqueness: { message: 'その名前は使用できません' }, length: { minimum: 2, maximum: 20 }
-  validates :body, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
   attachment :profile_image
 end
