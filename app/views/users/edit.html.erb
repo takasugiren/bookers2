@@ -13,18 +13,18 @@
           <%= form_with model:@user, local:true do |f| %>
           <div class="form-group">
             <p for="inputName">Name</p>
-            <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+            <%= f.text_field :name, autofocus: true, class: "form-control name" %>
           </div>
           <div class="form-group">
             <p for="inputImage">Image</p>
-            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+            <%= f.attachment_field :profile_image %>
           </div>
           <div class="form-group">
             <p for="inputIntroduction">Introduction</p>
-            <%= f.text_area :introduction %>
+            <%= f.text_area :introduction, class: "form-control introduction" %>
           </div>
           <div class="form-group">
-            <%= f.submit "Update User" %>
+            <%= f.submit "Update User", class: "btn btn-secondary" %>
           </div>
           <% end %>
       </div>

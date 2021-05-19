@@ -26,13 +26,13 @@
         <%= form_with model:book, local:true do |f| %>
           <div class="from">
             <p class="text">Title</p>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, class: "form-control book_title" %>
           </div>
           <div class="from">
             <p class="text">Opinion</p>
-            <%= f.text_area :body %>
+            <%= f.text_area :body, class: "form-control book_body" %>
           </div>
           <div class="from">
-            <%= f.submit 'Create Book' %>
+            <%= f.submit 'Create Book', class: "btn btn-sm btn-success" %>
           </div>
         <% end %>
